@@ -1,0 +1,77 @@
+﻿@page "/"
+
+<SfChart Title="Food Consumption Analysis">
+    <ChartPrimaryXAxis ValueType="Syncfusion.Blazor.Charts.ValueType.Category" Title="Food Items"
+                       LabelPlacement="LabelPlacement.OnTicks" EdgeLabelPlacement="EdgeLabelPlacement.Shift"
+                       LabelIntersectAction="LabelIntersectAction.Rotate90"
+                       EnableTrim="true" MaximumLabelWidth="38" LabelPosition="AxisPosition.Outside">
+        <ChartAxisLabelStyle Color="red" FontWeight="bold"></ChartAxisLabelStyle>
+        <ChartAxisTitleStyle Color="#ed7d31" FontWeight="bold"></ChartAxisTitleStyle>
+        <ChartMultiLevelLabels>
+            <ChartMultiLevelLabel>
+                <ChartAxisMultiLevelLabelTextStyle Color="red"></ChartAxisMultiLevelLabelTextStyle>
+                <ChartAxisMultiLevelLabelBorder Type="BorderType.Rectangle"></ChartAxisMultiLevelLabelBorder>
+                <ChartCategories>
+                    <ChartCategory Start="-0.5" End="5.5" Text="In Season"></ChartCategory>
+                    <ChartCategory Start="5.5" End="10.5" Text="Out Season"></ChartCategory>
+                    <ChartCategory Start="10.5" End="16.5" Text="In Season"></ChartCategory>
+                    <ChartCategory Start="16.5" End="21.5" Text="Out Season"></ChartCategory>
+                </ChartCategories>
+            </ChartMultiLevelLabel>
+            <ChartMultiLevelLabel>
+                <ChartAxisMultiLevelLabelTextStyle FontWeight="bold"></ChartAxisMultiLevelLabelTextStyle>
+                <ChartAxisMultiLevelLabelBorder Type="BorderType.Brace" Color="blue" Width=2>
+                </ChartAxisMultiLevelLabelBorder>
+                <ChartCategories>
+                    <ChartCategory Start="-0.5" End="10.5" Text="Vegetable"></ChartCategory>
+                    <ChartCategory Start="10.5" End="21.5" Text="Fruits"></ChartCategory>
+                </ChartCategories>
+            </ChartMultiLevelLabel>
+        </ChartMultiLevelLabels>
+    </ChartPrimaryXAxis>
+    <ChartPrimaryYAxis Title="Consumption Rate" Minimum="0" Maximum="100" Interval="10">
+        <ChartAxisLabelStyle Color="blue" FontWeight="bold"></ChartAxisLabelStyle>
+        <ChartAxisTitleStyle Color="#ed7d31" FontWeight="bold"></ChartAxisTitleStyle>
+    </ChartPrimaryYAxis>
+    <ChartSeriesCollection>
+        <ChartSeries DataSource="@ChartData" XName="Name" YName="Value" Type="ChartSeriesType.Column">
+        </ChartSeries>
+    </ChartSeriesCollection>
+</SfChart>
+
+@code {
+
+    public class ChartDataModel
+    {
+        public string Name { get; set; }
+        public double Value { get; set; }
+    }
+
+    public List<ChartDataModel> ChartData = new List<ChartDataModel>
+{
+        new ChartDataModel { Name = "Beetroot", Value = 31 },
+        new ChartDataModel { Name = "Tomato" , Value = 89 },
+        new ChartDataModel { Name = "Cucumber",  Value = 62 },
+        new ChartDataModel { Name = "Cabbage",  Value = 48 },
+        new ChartDataModel { Name = "Potato" , Value = 96 },
+        new ChartDataModel { Name = "Turnip", Value = 60 },
+        new ChartDataModel { Name = "Radish", Value = 52 },
+        new ChartDataModel { Name = "Pumpkin", Value = 20 },
+        new ChartDataModel { Name = "Peas", Value = 40 },
+        new ChartDataModel { Name = "Onion", Value = 79 },
+        new ChartDataModel { Name = "Carrot", Value = 53 },
+        new ChartDataModel { Name = "PineApple", Value = 28 },
+        new ChartDataModel { Name = "Jackfruit", Value = 50 },
+        new ChartDataModel { Name = "Strawberry" , Value = 12 },
+        new ChartDataModel { Name = "Pomogranate",  Value = 43 },
+        new ChartDataModel { Name = "Watermelon", Value = 35 },
+        new ChartDataModel { Name = "Lemon", Value = 27 },
+        new ChartDataModel { Name = "Grape", Value = 35 },
+        new ChartDataModel { Name = "Guava", Value = 72 },
+        new ChartDataModel { Name = "Apple", Value = 30 },
+        new ChartDataModel { Name = "Banana", Value = 50 },
+        new ChartDataModel { Name = "Raspberries", Value = 10 }
+    };
+
+
+}

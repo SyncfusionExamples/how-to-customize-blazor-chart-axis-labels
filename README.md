@@ -53,9 +53,6 @@ dotnet run
 
 Open the URL displayed in the terminal after the application starts.
 
-## Project Structure
-
-- `Client/Pages/` — contains the Syncfusion Blazor Chart axis-label customization implementation.
 
 ## Support and Feedback
 
